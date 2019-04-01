@@ -57,8 +57,8 @@
 		<input type ="number" placeholder ="mobile number" name="mobnum" required><br><br>
 		Your Mail ID :<br>
 		<input type ="text" placeholder ="mail Id" name="mailId" required><br><br>
-		<a href ="successApp.jsp"> <input type="submit" value="Submit">
-		</a>		
+		 <input type="submit" value="Submit">
+			
 	</form>
 
 
