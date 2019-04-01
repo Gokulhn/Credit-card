@@ -73,6 +73,16 @@ h1 {
  
  <a href="ViewSignup">
 <button class="button"  style="vertical-align:middle"><span>View all SignUp</span></button>
+</a><br>
+<br>
+
+<a href=#>
+<button class="button"  style="vertical-align:middle"><span>View All Application</span></button>
+</a><br>
+<br>
+
+ <a href="home.jsp">
+<button class="button"  style="vertical-align:middle"><span>Logout</span></button>
 </a>
 
 </body>

@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -71,13 +75,19 @@
 <body>
 <center><h1>HELLO APPLICANT</h1></center>
 
+<h1>
+		<%
+			out.println("Welcome User : " + request.getParameter("uname"));
+		%>
+	</h1>
+
 <div class="dropdown">
   <button onclick="myFunction()" class="dropbtn">My Account</button><br>
   <br>
   <div id="myDropdown" class="dropdown-content">
     <a href="#home">Profile</a>
     <a href="updatepass.jsp">Change Password</a>
-    <a href="#contact">Logout</a>
+    <a href="userLogin.html">Logout</a>
   </div>
 </div>
 
@@ -102,10 +112,8 @@ window.onclick = function(event) {
   }
 }
 </script>
-
-
 <br>
-<a href =></a>
+<a href ="Application.jsp">
 <button class="button">New Application</button>
 </a><br>
 <br>

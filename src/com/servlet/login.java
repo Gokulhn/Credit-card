@@ -23,12 +23,14 @@ public class login extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		RequestDispatcher rd=null;
 		DbOperations ur = new DbOperations();
 		String username = request.getParameter("uname");
 		String pass = request.getParameter("upass");
 		if (ur.checkLogin(username, pass)) {
+			rd=request.getRequestDispatcher("userApplication.jsp");
 			request.setAttribute("uname", username);
-			response.sendRedirect("userApplication.html");
+			rd.forward(request, response);
 //			RequestDispatcher rd = request.getRequestDispatcher("userApplication.html");
 		} else {
 			request.setAttribute("uname", username);
