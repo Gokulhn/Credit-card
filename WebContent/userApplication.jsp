@@ -87,7 +87,7 @@
   <div id="myDropdown" class="dropdown-content">
     <a href="#home">Profile</a>
     <a href="updatepass.jsp">Change Password</a>
-    <a href="userLogin.html">Logout</a>
+    <a href="home.jsp">Logout</a>
   </div>
 </div>
 

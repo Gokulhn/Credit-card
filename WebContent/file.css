@@ -1,0 +1,68 @@
+@charset "ISO-8859-1";
+body{
+    margin: 0;
+    background-color: #ffffff;
+    
+}
+form{
+    padding: 0px 0px 0px 400px;
+    margin: 20px auto;
+    color: #000000;
+}
+.button:hover{
+    background-color: blue;
+}
+input{
+    padding: 10px 300px 10px 0px;
+    font-size: inherit;
+    border-radius:5px;
+    color: steelblue;
+}
+input[type="text"]{
+    display: block;
+    margin-bottom: 25px;
+    background: #faf6d9;
+    
+    border: 2px solid steelblue;
+}
+input[type="date"]{
+    display: block;
+    margin-bottom: 25px;
+    width: 600px;
+    border: 2px solid steelblue;
+    background: #faf6d9;
+}
+input[type="number"]{
+    display: block;
+    margin-bottom: 25px;
+    
+    border: 2px solid steelblue;
+    background: #faf6d9;
+}
+input[type="textbox"]{
+    display: block;
+    margin-bottom: 25px;
+    
+    border: 2px solid steelblue;
+    background: #faf6d9;
+}
+input[type="radio"]:first-child{
+    margin-left: 0;
+    
+}
+input[type="submit"]{
+    width:600px;
+    height: 45px;
+    border: none;
+    background: steelblue;
+    color: white;
+    
+    text-align: center;
+}
+input:focus{
+    background: white;
+}
+input[type="radio"]:checked + label{
+    font-weight: bold;
+    font-size: 18px;
+}

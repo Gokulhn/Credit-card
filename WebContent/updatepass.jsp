@@ -82,17 +82,17 @@
 <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">e-Attaindance</a>
+                <a class="navbar-brand" href="#">Credit Card Approval</a>
             </div>
             <ul class="nav navbar-nav">
-                <li ><a href="Dashboard.jsp">Home</a></li>
+                <li ><a href="userApplication.jsp">Home</a></li>
                 <li><a href="#">Contact us</a></li>
                 <li class="active"><a href="password.jsp">Change Password</a></li>
-                <li ><a href="myaccount.jsp"><span class="glyphicon glyphicon-arrow-left">Back</a></li>
+                <li ><a href="userApplication.jsp"><span class="glyphicon glyphicon-arrow-left">Back</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <!--<li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>-->
-                <li><a href="index.jsp"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                <li><a href="home.jsp"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
             </ul>
         </div>
     </nav>

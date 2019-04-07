@@ -111,7 +111,7 @@ public class DbOperations {
 		String view = "Select uname,mobnum,mailid from user_signup";
 
 		try {
-			con=ob.getConnection();
+			con = ob.getConnection();
 			st = con.createStatement();
 			rs = st.executeQuery(view);
 			while (rs.next()) {
@@ -126,6 +126,44 @@ public class DbOperations {
 			e.printStackTrace();
 		}
 		return sign;
+	}
+
+	public void deleteSignup(String name) {
+		Connection con = null;
+		PreparedStatement pst = null;
+		String delete = "delete from user_signup where uname=?";
+		try {
+			con = ob.getConnection();
+			pst = con.prepareStatement(delete);
+			pst.setString(1, name);
+			int i = pst.executeUpdate();
+			if (i > 0) {
+				System.out.println("Successfull Deleted signup with name  : " + name);
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+		} finally {
+			ob.close();
+		}
+	}
+	
+	public void deleteLogin(String name) {
+		Connection con = null;
+		PreparedStatement pst = null;
+		String delete = "delete from user_login where uname=?";
+		try {
+			con = ob.getConnection();
+			pst = con.prepareStatement(delete);
+			pst.setString(1, name);
+			int i = pst.executeUpdate();
+			if (i > 0) {
+				System.out.println("Successfull Deleted login with name  : " + name);
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+		} finally {
+			ob.close();
+		}
 	}
 
 }
