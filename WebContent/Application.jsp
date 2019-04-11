@@ -47,12 +47,12 @@
 	<h1 class="text-success text-center">Application for Credit Card</h1>
 	<br>
 
-	<form action="" method="post" onsubmit="return validation()" class="bg-light">
+	<form action="userApplication" method="post" onsubmit="return validation()" class="bg-light">
 
 		<h2>Account Number :</h2>
 		<h3>
 			<input type="text" placeholder="Account number" name="acc"
-				id="accnum" required autocomplete="off"> <span id="username"
+				id="accnum" autocomplete="off"> <span id="username"
 				class="text-danger font-weight-bold"></span>
 		</h3>
 
@@ -88,6 +88,12 @@
 		<h3>
 			<input type="text" placeholder="Spouse name" name="Spousename"
 				autocomplete="off">
+		</h3>
+		
+		<h2>Annual Income (in Rs):</h2>
+		<h3>
+			<input type="number" placeholder="Annual income" name="income"
+				autocomplete="off" >
 		</h3>
 
 		<h2>Date of birth :</h2>
@@ -134,7 +140,7 @@
 			<input type="text" placeholder="Pan number" name="panNum" required>
 		</h3>
 
-		<h2>Addar no :</h2>
+		<h2>Adhar no :</h2>
 		<h3>
 			<input type="text" placeholder="Addar number" name="Addar" required>
 		</h3>
@@ -142,11 +148,27 @@
 		<h3>
 			<input type="textbox" placeholder="Address" name="address" required>
 		</h3>
+		
 		<h2>Your Mobile number :</h2>
 		<h3>
 			<input type="number" placeholder="mobile number" name="mobnum"
 				required>
 		</h3>
+		
+		<h2>Your Designation :</h2>
+		<h3>
+			<input type="textbox" placeholder="Designation" name="disg" >
+		</h3>
+		
+		<h2>Employement Status :</h2>
+		<h3>
+			<input type="radio" name="emp" value="business"> <label
+				for="male"> Business</label> <br>
+				 <input type="radio"name="emp" value="pro"><label for="male"> Professional</label><br>
+				<input type="radio" name="emp" value="self"> <label
+				for="male"> Self Employed</label> <br>
+		</h3>
+		
 		
 		<h2>Your Mail ID :</h2>
 		<h3>
@@ -156,7 +178,7 @@
 		
 		
 		
-		<input type="submit" value="Submit" id="button"><br> <br>
+		<input type="submit" value="Submit" id="button" ><br> <br>
 		
 		
 		<input type="reset" name="reset" value=" Clear " class="btn btn-danger" >

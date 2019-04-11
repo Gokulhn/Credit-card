@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.dboperation.DbOperations;
 import com.dboperation.UserPro;
@@ -23,20 +24,20 @@ public class login extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		RequestDispatcher rd=null;
+		HttpSession session = request.getSession();
 		DbOperations ur = new DbOperations();
 		String username = request.getParameter("uname");
 		String pass = request.getParameter("upass");
 		if (ur.checkLogin(username, pass)) {
-			rd=request.getRequestDispatcher("userApplication.jsp");
-			request.setAttribute("uname", username);
-			rd.forward(request, response);
-//			RequestDispatcher rd = request.getRequestDispatcher("userApplication.html");
+			String uid = ur.getUserID(username);
+			session.setAttribute("uid", uid);
+			session.setAttribute("uname", username);
+			response.sendRedirect("userApplication.jsp");
 		} else {
+
 			request.setAttribute("uname", username);
 			response.sendRedirect("InvalidLogin.jsp");
 		}
-		
 
 	}
 }

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.dboperation.DbOperations;
+import com.dboperation.IdGenerator;
 import com.dboperation.Signup;
 import com.dboperation.UserPro;
 
@@ -28,7 +29,8 @@ public class signup extends HttpServlet {
 		String mailid = request.getParameter("email");
 		String pass = request.getParameter("pass");
 		String cpass = request.getParameter("cpass");
-		Signup s = new Signup(name, mobnum, mailid, pass, cpass);
+		String uid = IdGenerator.getID();
+		Signup s = new Signup(name, mobnum, mailid, pass, cpass,uid);
 		String sname = DbOperations.signUp(s);
 		System.out.println("signed up user :" + sname);
 		UserPro u=new UserPro(name,pass);

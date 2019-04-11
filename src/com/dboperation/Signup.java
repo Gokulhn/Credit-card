@@ -13,5 +13,6 @@ public class Signup {
 	private String mailid;
 	private String pass;
 	private String cpass;
+	private String uid;
 
 }

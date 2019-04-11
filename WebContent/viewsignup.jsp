@@ -13,7 +13,7 @@
   color: white;
   padding: 10px 20px;
   text-align: center;
-  text-decoration: none;
+  text-decoration: none;	
   display: inline-block;
   font-size: 16px;
   margin: 4px 2px;
@@ -75,12 +75,14 @@ tr:nth-child(even) {
 			<th>User Name</th>
 			<th>Mobile Number</th>
 			<th>Mail ID</th>
+			<th>User ID</th>
 		</tr>
 		<c:forEach items="${list}" var="lis">
 			<tr>
 				<td>${lis.name}</td>
 				<td>${lis.mobnum}</td>
 				<td>${lis.mailid}</td>
+				<td>${lis.uid}</td>
 				<td><button class="button button3"><a href="deleteSignup?name=${lis.name}">Delete user</a> </button> </td>
 			</tr>
 		</c:forEach>

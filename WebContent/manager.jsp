@@ -76,7 +76,7 @@ h1 {
 </a><br>
 <br>
 
-<a href=#>
+<a href="viewApplication">
 <button class="button"  style="vertical-align:middle"><span>View All Application</span></button>
 </a><br>
 <br>
