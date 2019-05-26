@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Sign Up</title>
+<title>Approve</title>
 <style>
 .button {
   background-color: #4CAF50; /* Green */
@@ -70,21 +70,24 @@ tr:nth-child(even) {
 </style>
 </head>
 <body>
+ <h2>APPROVE APPLICATION</h2>
 	<table>
 		<tr>
-			<th>User Name</th>
-			<th>Mobile Number</th>
-			<th>Mail ID</th>
+			<th>Application ID</th>
 			<th>User ID</th>
-			<th>Delete</th>
+			<th>First Name</th>
+			<th>Mail ID</th>
+			<th>Accept</th>
+			<th>Reject</th>
 		</tr>
-		<c:forEach items="${list}" var="lis">
+		<c:forEach items="${data}" var="lis">
 			<tr>
-				<td>${lis.name}</td>
-				<td>${lis.mobnum}</td>
-				<td>${lis.mailid}</td>
+				<td>${lis.aid}</td>
 				<td>${lis.uid}</td>
-				<td><button class="button button3"><a href="deleteSignup?name=${lis.name}">Delete user</a> </button> </td>
+				<td>${lis.fname}</td>
+				<td>${lis.mail}</td>
+				<td><button class="button button3"><a href="acceptApp?mail=${lis.mail}">Accept</a>  </button> </td>
+				<td><button class="button button3"><a href="rejectApp?mail=${lis.mail}">Reject</a> </button> </td>
 			</tr>
 		</c:forEach>
 	</table>

@@ -8,6 +8,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.credit.domain.Mail;
+
 import Application.Application;
 
 public class DbOperations {
@@ -21,7 +23,7 @@ public class DbOperations {
 	static String str1 = "Select * from manager where mname =? and mpass = ?";
 	static String DELETE = "delete from application where uid=?";
 
-	public static String signUp(Signup s) {
+	public  static boolean signUp(Signup s) {
 		Connection con = null;
 		PreparedStatement pst = null;
 		try {
@@ -33,8 +35,9 @@ public class DbOperations {
 			pst.setString(4, s.getPass());
 			pst.setString(5, s.getUid());
 			int i = pst.executeUpdate();
-			if (i > 0) {
+			if (i==1 ) {
 				System.out.println("sign up of user in db successful :" + s.getName());
+				return true;
 			} else {
 				System.out.println("sign up in db failed " + s.getName());
 			}
@@ -43,7 +46,7 @@ public class DbOperations {
 			System.out.println(e.getMessage());
 		}
 
-		return s.getName();
+		return false;
 
 	}
 
@@ -282,8 +285,6 @@ public class DbOperations {
 				ap.setUid(rs.getString("uid"));
 				ap.setFname(rs.getString("fname"));
 				ap.setAcc(rs.getString("accnum"));
-//				Application a = Application.builder().Aid(rs.getInt("appid")).uid(rs.getString("uid"))
-//						.fname(rs.getString("fname")).acc(rs.getString("accnum")).build();
 				app.add(ap);
 			}
 			System.out.println("Application data retrieved successfully.......");
@@ -332,6 +333,87 @@ public class DbOperations {
 			e.printStackTrace();
 		}
 		return false;
+	}
+
+	public List<Application> viewFullApplication(String uid) {
+		List<Application> app = new ArrayList<>();
+		Connection con = ob.getConnection();
+		String view = "select * from application where uid=?";
+		Application ap;
+
+		try {
+			pst = con.prepareStatement(view);
+			pst.setString(1, uid);
+			rs = pst.executeQuery();
+			while (rs.next()) {
+				ap = new Application();
+				ap.setAid(rs.getInt("appid"));
+				ap.setUid(rs.getString("uid"));
+				ap.setFname(rs.getString("fname"));
+				ap.setAddar(rs.getString("addar"));
+				ap.setAddress(rs.getString("address"));
+				ap.setCardname(rs.getString("cardname"));
+				ap.setCitizen(rs.getString("citizen"));
+				ap.setDesig(rs.getString("desig"));
+				ap.setDname(rs.getString("dname"));
+				ap.setDob(rs.getString("dob"));
+				ap.setEmp(rs.getString("emp"));
+				ap.setGender(rs.getString("gender"));
+				ap.setMail(rs.getString("mail"));
+				ap.setMarital(rs.getString("marital"));
+				ap.setMname(rs.getString("mname"));
+				ap.setMob(rs.getString("mob"));
+				ap.setPan(rs.getString("pan"));
+				ap.setAcc(rs.getString("accnum"));
+				ap.setWife(rs.getString("wife"));
+				ap.setIncome(rs.getString("income"));
+
+				app.add(ap);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return app;
+	}
+	
+	public List<Application> approApp() {
+		List<Application> app = new ArrayList<>();
+		String viewApplication = "select appid,uid,mail,fname from application";
+		Application ap;
+
+		try {
+			Connection con = ob.getConnection();
+			st = con.createStatement();
+			rs = st.executeQuery(viewApplication);
+			while (rs.next()) {
+				ap = new Application();
+				ap.setAid(rs.getInt("appid"));
+				ap.setUid(rs.getString("uid"));
+				ap.setMail(rs.getString("mail"));
+				ap.setFname(rs.getString("fname"));
+				app.add(ap);
+			}
+			System.out.println("Application data retrieved successfully.......");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return app;
+	}
+	
+	public Mail getMailAuthentication() {
+		String selectMailDetailsQuery = "SELECT * FROM MAIL";
+		Mail mail = null;
+		try {
+			Connection con = ob.getConnection();
+			st = con.createStatement();
+			rs = st.executeQuery(selectMailDetailsQuery);
+			while (rs.next()) {
+				mail = Mail.builder().hostmailaddress(rs.getString(1)).hostpassword(rs.getString(2)).build();
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return mail;
 	}
 
 }

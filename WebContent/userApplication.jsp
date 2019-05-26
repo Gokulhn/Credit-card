@@ -8,7 +8,8 @@
 <style>
 .button {
 	display: inline-block;
-	padding: 15px 25px;
+	padding: 20px;
+	width: 500px;
 	font-size: 24px;
 	cursor: pointer;
 	text-align: center;
@@ -34,14 +35,15 @@
 .dropbtn {
 	background-color: #3498DB;
 	color: white;
-	padding: 16px;
+	padding: 35px;
+  width: 500px;
 	font-size: 16px;
 	border: none;
 	cursor: pointer;
 }
 
 .dropbtn:hover, .dropbtn:focus {
-	background-color: #2980B9;
+	background-color:#67067f;
 }
 
 .dropdown {
@@ -61,7 +63,8 @@
 
 .dropdown-content a {
 	color: black;
-	padding: 12px 16px;
+	padding: 20px;
+	width: 350px;
 	text-decoration: none;
 	display: block;
 }
@@ -79,27 +82,36 @@
 </head>
 <body background="user.jpg">
 
+<%
+response.setHeader("Cache-Control", "no-cache , no-store , must-revalidate");
+response.setHeader("Progma", "no-cache");
+response.setHeader("Expries", "0");
+if(session.getAttribute("uid")==null){
+	response.sendRedirect("userLogin.html");
+}
+%>
+
 	<center>
-		<h1 style="color:red;" >HELLO APPLICANT</h1>
+		<h1 style="color: #5b0a70;">HELLO APPLICANT</h1>
 	</center>
 
-	<h1 style="color:white;">
+	<h1 style="color: white;">
 		<%
-			out.println("Welcome User : " + (String) session.getAttribute("uname").toString().toUpperCase());
+			out.println("WELCOME USER : " + (String) session.getAttribute("uname").toString().toUpperCase());
 		%>
 	</h1>
-	<h1 style="color:white;">
+	<h1 style="color: white;">
 		<%
-			out.println("UserID :- " + (String) session.getAttribute("uid"));
+			out.println("USER ID :- " + (String) session.getAttribute("uid"));
 		%>
 	</h1>
 
 	<div class="dropdown">
-		<button onclick="myFunction()" class="dropbtn">My Account</button>
+		<button onclick="myFunction()" class="dropbtn">MY ACCOUNT</button>
 		<br> <br>
 		<div id="myDropdown" class="dropdown-content">
-			<a href="#home">Profile</a> <a href="updatepass.jsp">Change
-				Password</a> <a href="home.jsp">Logout</a>
+			<a href="#home">1 -> Profile</a> <a href="updatepass.jsp">2 -> Change
+				Password</a> <a href="logout">3 -> Logout</a>
 		</div>
 	</div>
 
@@ -126,21 +138,22 @@
 		}
 	</script>
 	<br>
-	<a href="isAppliedApplication">
+	<center><a href="isAppliedApplication">
 		<button class="button">New Application</button>
-	</a>
+	</a></center>
 	<br>
 	<br>
 
+<center>
 	<a href="confirmDelete.html">
-	<button class="button">Delete My Application</button>
-	</a>
+		<button class="button">Delete My Application</button>
+	</a></center>
 	<br>
 	<br>
-
-	<a href=>
-	<button class="button">Update Application</button>
-	</a>
+<center>
+	<a href="Application.jsp">
+		<button class="button">Update Application</button>
+	</a></center>
 	<br>
 	<br>
 

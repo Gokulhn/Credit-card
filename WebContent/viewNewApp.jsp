@@ -66,14 +66,14 @@ th {
 
 </head>
 <body>
-	<center><h2>APPLIED APPLICATION</h2></center>
+	<h2>Applied Application</h2>
 	<table>
 		<tr>
 			<th>Application ID</th>
 			<th>User ID</th>
-			<th>First Name</th>
+			<th>Name</th>
 			<th>Account Number</th>
-			<th>View</th>
+			<th>Delete</th>
 		</tr>
 		<c:forEach items="${data}" var="d">
 			<tr>
@@ -83,7 +83,7 @@ th {
 				<td>${d.acc}</td>
 
 				<td><button class="button button3">
-						<a href="viewSingleApp?uid=${d.uid}">View Full Application</a>
+						<a href="deleteAppMan?uid=${d.uid}">Delete</a>
 					</button></td>
 			</tr>
 		</c:forEach>

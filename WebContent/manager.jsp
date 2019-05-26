@@ -16,7 +16,7 @@
   text-align: center;
   font-size: 28px;
   padding: 20px;
-  width: 200px;
+  width: 500px;
   transition: all 0.5s;
   cursor: pointer;
   margin: 5px;
@@ -24,7 +24,7 @@
 body {
    background-image: url("office1.jpg");
   background-color: #cccccc;
-  padding:100px 100px 350px 100px;
+  padding:75px 75px 75px 75px;
   
   background-position: center;
   background-repeat: no-repeat;
@@ -69,7 +69,15 @@ h1 {
 }</style>
 </head>
 <body>
-<center><h1>HELLO MANAGER</h1></center>
+<%
+response.setHeader("Cache-Control", "no-cache , no-store , must-revalidate");
+response.setHeader("Progma", "no-cache");
+response.setHeader("Expries", "0");
+if(session.getAttribute("uid")==null){
+	response.sendRedirect("managerlogin.html");
+}
+%>
+<center><h1>HELLO MANAGER</h1></center><br>
  
  <a href="ViewSignup">
 <button class="button"  style="vertical-align:middle"><span>View all SignUp</span></button>
@@ -81,7 +89,18 @@ h1 {
 </a><br>
 <br>
 
- <a href="home.jsp">
+<a href="viewAppNew">
+<button class="button"  style="vertical-align:middle"><span>Delete Application</span></button>
+</a><br>
+<br>
+
+<a href="approApp">
+<button class="button"  style="vertical-align:middle"><span>Approve Application</span></button>
+</a><br>
+<br>
+
+
+ <a href="managerLogout">
 <button class="button"  style="vertical-align:middle"><span>Logout</span></button>
 </a>
 

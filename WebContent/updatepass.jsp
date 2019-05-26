@@ -83,6 +83,14 @@ a {
 }
 </style>
 <body>
+<%
+response.setHeader("Cache-Control", "no-cache , no-store , must-revalidate");
+response.setHeader("Progma", "no-cache");
+response.setHeader("Expries", "0");
+if(session.getAttribute("uid")==null){
+	response.sendRedirect("home.jsp");
+}
+%>
 	<nav class="navbar navbar-inverse">
 	<div class="container-fluid">
 		<div class="navbar-header">
@@ -97,7 +105,7 @@ a {
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
 			<!--<li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>-->
-			<li><a href="home.jsp"><span
+			<li><a href="logout"><span
 					class="glyphicon glyphicon-log-in"></span> Logout</a></li>
 		</ul>
 	</div>
@@ -106,18 +114,20 @@ a {
 	<form action="updatePassword" method ="get">
 		<div class="container1">
 
-			<h1>
+			<h1 style="color: #af213b;">
 				<%
-					out.println("User name : " + (String) session.getAttribute("uname"));
+					out.println("YOUR USERNAME : " + (String) session.getAttribute("uname").toString().toUpperCase());
 				%>
 			</h1>
 
-			<font size="6" color="green" face="courier"> CHANGE PASSWORD </font>
-			<br> <input type="text" placeholder="Enter User Name"
-				name="username" required autocomplete="off"><br> <input
-				type="password" placeholder="Enter old Password" name="psw" required><br>
-			<input type="password" placeholder="Enter New Password" name="npsw"
-				required autocomplete="off"><br>
+			<center><font size="6" color="green" face="courier"> CHANGE PASSWORD </font></center>
+			<br> 
+			<center> <input type="text" placeholder="Enter User Name"
+				name="username" required autocomplete="off"></center><br> 
+				 <center>
+				  <input type="password" placeholder="Enter old Password" name="psw" required></center><br>
+			<center> <input type="password" placeholder="Enter New Password" name="npsw"
+				required autocomplete="off"><center> <br>
 
 			<button type="submit" class="SUBMITbtn">SUBMIT</button>
 	</form>

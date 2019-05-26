@@ -1,8 +1,10 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 
 <head>
-    <title>Deleted</title>
+    <title>Rejected</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -55,10 +57,10 @@ padding-top: 20%;
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">Credit Card Approval</a>
+                <a class="navbar-brand" href="#">Credit Card Approval System</a>
             </div>
             <ul class="nav navbar-nav">
-                <li><a href="userApplication.jsp">Home</a></li>
+                <li><a href="manager.jsp">Home</a></li>
               
             </ul>
             
@@ -68,12 +70,12 @@ padding-top: 20%;
         <br>
         <br>
         <center><div class="center">
-        <h1> Success...</h1>
-              <h1> You have deleted your application succesfully..</h1>
+        <h1> Application has been rejected!!!!!!!</h1>
       
         </div></center><br>
-        
+       <center><button type="button"><a href= "manager.jsp">back</a></button></center>
 
+</a>
 
     </div>
    
